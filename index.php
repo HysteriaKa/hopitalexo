@@ -1,6 +1,6 @@
 <?php
-    include_once 'head.php'
-    ?>
+include_once 'head.php'
+?>
 
 </head>
 
@@ -15,7 +15,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/grey.jpg" class="d-block w-80" alt="...">
+                        <img src="assets/greynulle.jpg" class="d-block w-80" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="assets/mamour.jpg" class="d-block w-100" alt="...">

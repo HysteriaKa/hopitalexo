@@ -1,6 +1,6 @@
 <?php
-    include_once 'head.php'
-    ?>
+include_once 'head.php'
+?>
 
 <body>
 
@@ -17,7 +17,7 @@
     }
     ?>
     <?php
-    $reponse = $bdd->query("SELECT lastname, firstname, birthdate, phone, mail FROM patients "); ?>
+    $reponse = $bdd->query("SELECT id, lastname, firstname, birthdate, phone, mail FROM patients "); ?>
     <h2 class="alert alert-info text-center" role="alert"> Patients' List</h2>
     <table class="table table-striped table-dark">
         <thead>
@@ -25,8 +25,7 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Birth Date</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Mail</th>
+                <th scope="col">Details</th>
             </tr>
         </thead>
         <?php
@@ -37,8 +36,7 @@
                     <td> <?php echo $donnees['lastname']; ?></td>
                     <td><?php echo $donnees['firstname']; ?></td>
                     <td><?php echo $donnees['birthdate']; ?></td>
-                    <td><?php echo $donnees['phone']; ?></td>
-                    <td><?php echo $donnees['mail']; ?></td>
+                    <td><a href="profil-patients.php?id=<?php echo $donnees['id'] ?>"><i class="fas fa-folder-plus text-warning"></i></a></td>
                 </tr>
             <?php
         }
@@ -46,9 +44,9 @@
         $reponse->closeCursor();
 
             ?>
-    <?php
-    include_once 'bootstrap.php'
-    ?>
+            <?php
+            include_once 'bootstrap.php'
+            ?>
 </body>
 
 </html>
