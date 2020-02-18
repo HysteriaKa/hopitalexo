@@ -6,11 +6,6 @@ include_once 'navbar.php'
 ?>
 
 <body>
-    
-
-<?php
-    include_once 'navbar.php'
-    ?>
     <?php
     try {
         // On se connecte à MySQL
@@ -19,9 +14,18 @@ include_once 'navbar.php'
 
         die('Erreur : ' . $e->getMessage());
     }
-    ?>
-    <?php
-    $reponse = $bdd->query("SELECT patients.id, lastname, firstname, phone, dateHour FROM patients 
+
+    
+    // Check Delete
+    if(isset($_GET['delete_id'])){
+        $getid = $_GET['delete_id'];
+
+        $reponse = $bdd->prepare("DELETE FROM appointments WHERE `id`=:id ");
+        $donnees = $reponse->execute([ 'id' => $getid]);
+    }
+
+    // Create list
+    $reponse = $bdd->query("SELECT appointments.id, lastname, firstname, phone, dateHour FROM patients 
     JOIN appointments ON patients.id = appointments.idPatients"); ?>
     <h2 class="alert alert-info text-center" role="alert">Appointments'list</h2>
     <table class="table table-striped table-dark">
@@ -38,17 +42,27 @@ include_once 'navbar.php'
         <?php
         while ($donnees = $reponse->fetch()) {
         ?>
-            <tbody>
-                <tr>
-                    <td> <?php echo $donnees['lastname']; ?></td>
-                    <td><?php echo $donnees['firstname']; ?></td>
-                    <td><?php echo $donnees['phone']; ?></td>
-                    <td><?php echo $donnees['dateHour']; ?></td>
-                    <td><a href="rendezvous.php?id=<?php echo $donnees['id'] ?>"><i class="fas fa-exchange-alt text-primary"></i></a></td>
-                    <td><a href="liste-rendezvous.php?delete_id=<?php echo $donnees['id'] ?>"><i class="far fa-trash-alt text-danger"></i></a></td>
-                </tr>
+        <tbody>
+            <tr>
+                <td> <?php echo $donnees['lastname']; ?></td>
+                <td><?php echo $donnees['firstname']; ?></td>
+                <td><?php echo $donnees['phone']; ?></td>
+                <td><?php echo $donnees['dateHour']; ?></td>
+                <td><a href="rendezvous.php?id=<?php echo $donnees['id'] ?>"><i
+                            class="fas fa-exchange-alt text-primary"></i></a></td>
+                <td><a href="liste-rendezvous.php?delete_id=<?php echo $donnees['id'] ?>"><i
+                            class="far fa-trash-alt text-danger"></i></a></td>
+            </tr>
+
+            <?php
+            
+        
+?>
+
             <?php
         }
+
+        
 
         $reponse->closeCursor();
 
@@ -58,4 +72,3 @@ include_once 'navbar.php'
             ?>
 
 </body>
-

@@ -5,7 +5,6 @@ include_once 'head.php'
 </head>
 
 <body>
-    <h1 class="text-center bg-secondary pb-2">Seattle Grace Hospital</h1>
 
     <?php
     include_once 'navbar.php'
