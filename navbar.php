@@ -11,6 +11,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="ajout-patient.php">Add a new patient</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="liste-rendezvous.php">Appointments'List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajout-rendezvous.php">Add a new appointments</a>
+            </li>
         </ul>
     </div>
 </nav>
