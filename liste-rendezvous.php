@@ -25,7 +25,7 @@ include_once 'navbar.php'
     }
 
     // Create list
-    $reponse = $bdd->query("SELECT appointments.id, lastname, firstname, phone, dateHour FROM patients 
+    $reponse = $bdd->query("SELECT appointments.id, lastname, firstname, phone, DATE_FORMAT(dateHour, '%d-%m-%Y %Hh:%imin') AS dateHour FROM patients 
     JOIN appointments ON patients.id = appointments.idPatients"); ?>
     <h2 class="alert alert-info text-center" role="alert">Appointments'list</h2>
     <table class="table table-striped table-dark">
@@ -54,8 +54,7 @@ include_once 'navbar.php'
                             class="far fa-trash-alt text-danger"></i></a></td>
             </tr>
 
-            <?php
-            
+            <?php           
         
 ?>
 

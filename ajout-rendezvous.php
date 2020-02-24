@@ -35,7 +35,7 @@
                 <label class="font-weight-bold">Date RDV </label>
                 <input type="date" name="date" />
                 <label class="font-weight-bold">Heure RDV </label>
-                <input type="time" name="heure" />
+                <input type="time" name="heure" min="09:00" max="16:00" step="1800"/>
                 <input class="bg-info" type="submit" name="appmt" value="Add appmt" />
             </div>
         </form>

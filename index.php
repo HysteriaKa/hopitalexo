@@ -23,7 +23,7 @@ include_once 'head.php'
                         <img src="assets/glam.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/docka.JPG" class="d-block w-100" alt="...">
+                        <img src="assets/docka.JPG" class="d-block w-70" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -41,5 +41,7 @@ include_once 'head.php'
     include_once 'bootstrap.php'
     ?>
 </body>
-
+<?php
+    include_once 'footer.php'
+    ?>
 </html>
