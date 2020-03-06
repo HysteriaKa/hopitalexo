@@ -48,6 +48,9 @@ include_once 'navbar.php'
         $reponse->bindValue('offs', $offset, PDO::PARAM_INT);
         $reponse->execute();
     }
+
+
+    
     $countStatement = $bdd->query("SELECT COUNT(*) FROM patients"); 
     $count = $countStatement->fetch();
     $nbpages = ceil(intval($count[0]) / $nPerPage);
